@@ -1,0 +1,20 @@
+#Solution is in Python 3 language
+
+#Taking input from the users
+N = int(input())
+numbers = list(map(int, input().split()))
+
+#Imoporting the Statistics Library
+import statistics as st
+
+#Calulating mean and std deviation
+m = st.mean(numbers)
+sd = 0
+for i in range(0, len(numbers)):
+    sd += (numbers[i] - m)**2
+
+sd = sd/N
+sd = sd**(1/2)
+
+#Printing the results
+print(round(sd, 1))
