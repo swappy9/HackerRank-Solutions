@@ -1,4 +1,6 @@
 # Enter your code here. Read input from STDIN. Print output to STDOUT
+#Solution is in Python 2 language
+
 #Taking input from the user and making it as int
 N = raw_input()
 numbers = map(int, raw_input().split())
