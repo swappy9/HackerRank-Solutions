@@ -1,0 +1,33 @@
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+#Taking input from the user and making it as int
+N = raw_input()
+numbers = map(int, raw_input().split())
+
+import numpy as np
+
+#using numpy to calculate meana and median
+mean = np.mean(numbers)
+median = np.median(numbers)
+
+#Calculation for mode - logic: count the no of elements in the list and arrange it in descending order
+#then take tuple 1st with 1st value as element and 2nd value of 1st element as mode value
+sorted(numbers)
+hits = []
+for item in numbers:
+    tally = numbers.count(item)
+    #Makes a tuple that is the number of huts paired with the relevant number
+    values = (tally, item)
+    # Only add one entry for each number in the set
+    if values not in hits:
+        hits.append(values)
+hits.sort(reverse=True)
+max = hits[0][0]
+mode = hits[0][1]
+for i in range(1, len(hits)):
+    if hits[i][0] == max:
+        mode = hits[i][1]
+
+#Printing the result
+print round(mean, 1)
+print round(median, 1)
+print mode
