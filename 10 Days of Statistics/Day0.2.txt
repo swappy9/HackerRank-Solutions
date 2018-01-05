@@ -1,0 +1,17 @@
+#Solution is in Python 2 language
+
+#Taking input from user
+N = input()
+numbers = list(map(int , input().split()))
+weights = list(map(int , input().split()))
+
+#Initializing sum and sumw to 0
+
+sumt = 0
+sumw = 0
+for i in range(0, len(numbers)):
+    sumt += numbers[i]*weights[i]
+    sumw += weights[i]
+    
+#Printing the result
+print( round(float(sumt/sumw), 1))
