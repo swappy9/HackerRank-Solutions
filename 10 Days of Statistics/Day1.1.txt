@@ -1,0 +1,31 @@
+#The solution is in Python 3 language
+
+#Taking input from users
+N = input()
+numbers = list(map(int, input().split()))
+
+#Importing Statistics library to calulate mean, median
+import statistics as np
+
+#Sorting the numbers list in reverse order
+sorted(numbers, reverse = True)
+m2 = np.median(numbers)
+m1 = []
+m3 = []
+
+#Calulating the Ist and IIIrd Quartiles list
+for i in range(0, len(numbers)):
+    if numbers[i] < m2:
+        m1.append(numbers[i])
+    if numbers[i] > m2:
+        m3.append(numbers[i])
+        
+
+#Taking median of the Ist and IIIrd Quartiles     
+m1 = np.median(m1)
+m3 = np.median(m3)
+
+#Printing the results
+print(int(m1))
+print(int(m2))
+print(int(m3))

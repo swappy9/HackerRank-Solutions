@@ -1,0 +1,39 @@
+#Solution is Python 3 Language
+
+#Taking input from users
+N = input()
+numbers = list(map(int, input().split()))
+weights = list(map(int, input().split()))
+newnumbers = []
+
+#Cerating the final list of numbers including the frequency of each numbers
+for i in range(0, len(numbers)):
+    temp = [numbers[i]] * weights[i]
+    for j in temp:
+        newnumbers.append(j)
+
+#Sorting the new list
+newnumbers.sort()
+
+#Importing the statistics library
+import statistics as s
+
+#Calculating the length
+n = len(newnumbers)
+
+#Creating the Ist and IIIrd Quartiles list based on the no of elements in the original list
+
+if len(newnumbers)%2 == 0:
+    m1 = newnumbers[:n//2]
+    m3 = newnumbers[n//2 : ]
+else:
+    m1 = newnumbers[ :n//2]
+    m3 = newnumbers[n//2 + 1:]
+
+#Caculating the median for Ist and IIIrd Quartiles list and the interquartile range between them
+m1 = s.median(m1)
+m3 = s.median(m3)
+diff = round(float(m3 - m1), 1)
+
+#Printing the difference
+print(diff)
